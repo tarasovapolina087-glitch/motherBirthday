@@ -1,0 +1,234 @@
+/* style.css */
+
+/* Переменные для цветов, чтобы легко менять тему */
+:root {
+    --primary-beige: #FDF8F0; /* Очень светлый бежевый для фона */
+    --secondary-beige: #F2E8D7; /* Чуть темнее бежевый для секций */
+    --accent-beige: #DCC7B0; /* Более насыщенный бежевый для заголовка/футера */
+    --text-color: #5A4C40; /* Темный коричневый для основного текста */
+    --heading-color: #8D7B6D; /* Более светлый коричневый для заголовков */
+    --light-text-color: #7B6E63; /* Для дополнительного текста */
+}
+
+/* Общие стили для всего тела страницы */
+body {
+    font-family: 'Cormorant Garamond', serif; /* Шрифты с Google Fonts */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-beige);
+    color: var(--text-color);
+    text-align: center;
+    scroll-behavior: smooth; /* Плавная прокрутка, если будут якоря */
+}
+
+/* Стили для главного заголовка страницы */
+.main-header {
+    background-color: var(--accent-beige);
+    color: white; /* Белый текст на темном фоне */
+    padding: 40px 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.main-header h1 {
+    font-family: 'Playfair Display', serif; /* Особый шрифт для главного заголовка */
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.main-header p {
+    font-size: 1.3em;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Оболочка для основного контента, ограничивает ширину */
+.content-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Стили для каждой секции пожеланий */
+.wish-section {
+    background-color: var(--secondary-beige);
+    margin-bottom: 50px;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease-in-out; /* Оставляем CSS-анимацию наведения */
+}
+
+.wish-section:hover {
+    transform: translateY(-5px); /* Небольшой эффект при наведении */
+}
+
+.wish-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em;
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.section-description {
+    font-size: 1.1em;
+    color: var(--light-text-color);
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Контейнер для галереи изображений */
+.image-gallery {
+    display: flex; /* Используем Flexbox для расположения изображений */
+    flex-wrap: wrap; /* Позволяет изображениям переноситься на новую строку */
+    justify-content: center; /* Центрирует изображения по горизонтали */
+    gap: 20px; /* Отступы между изображениями */
+    margin-top: 30px;
+}
+
+.image-gallery img {
+    width: 100%; /* По умолчанию на мобильных устройствах изображение занимает всю ширину */
+    max-width: 320px; /* Максимальная ширина для каждого изображения */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 3px solid rgba(255, 255, 255, 0.7); /* Легкая рамка */
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* Стили для футера */
+.main-footer {
+    background-color: var(--accent-beige);
+    color: white;
+    padding: 25px;
+    margin-top: 60px;
+    box-shadow: 0 -3px 8px rgba(0,0,0,0.05);
+}
+
+.main-footer p {
+    margin: 0;
+    font-size: 1em;
+}
+
+/* --- АНИМАЦИИ С ПОМОЩЬЮ JAVASCRIPT И CSS --- */
+
+/* Начальное состояние для элементов заголовка, которые будут анимироваться */
+.animated-header-element {
+    opacity: 0; /* Изначально скрыты */
+    transform: translateY(-20px); /* Смещены вверх */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Плавный переход */
+    will-change: opacity, transform; /* Подсказка браузеру для оптимизации */
+}
+
+/* Конечное состояние для элементов заголовка, когда класс 'header-visible' добавлен */
+.main-header.header-visible .animated-header-element:nth-of-type(1) { /* Для H1 */
+    opacity: 1; /* Полностью видны */
+    transform: translateY(0); /* Возвращены на место */
+    transition-delay: 0.2s; /* Задержка для H1 */
+}
+
+.main-header.header-visible .animated-header-element:nth-of-type(2) { /* Для P */
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s; /* Большая задержка для P */
+}
+
+/* Начальное состояние для секций, которые будут анимироваться при прокрутке */
+.animated-on-scroll {
+    opacity: 0; /* Изначально скрыты */
+    transform: translateY(30px); /* Смещены вниз */
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+/* Конечное состояние для секций, когда класс 'is-visible' добавлен (попадают в область видимости) */
+.animated-on-scroll.is-visible {
+    opacity: 1; /* Полностью видны */
+    transform: translateY(0); /* Возвращены на место */
+}
+
+/* Опционально: последовательная задержка для секций при прокрутке */
+.wish-section:nth-of-type(1).is-visible { transition-delay: 0.1s; }
+.wish-section:nth-of-type(2).is-visible { transition-delay: 0.3s; }
+.wish-section:nth-of-type(3).is-visible { transition-delay: 0.5s; }
+
+
+/* Медиа-запросы для адаптивности (остаются как есть) */
+
+/* Для планшетов и экранов побольше */
+@media (min-width: 768px) {
+    .main-header h1 {
+        font-size: 4.5em;
+    }
+
+    .wish-text {
+        font-size: 3.5em;
+    }
+
+    .image-gallery {
+        /* На планшетах изображения могут быть в 2 столбца */
+        grid-template-columns: repeat(2, 1fr);
+        display: grid; /* Переключаемся на Grid для лучшего контроля */
+    }
+}
+
+/* Для больших экранов (десктопов) */
+@media (min-width: 1024px) {
+    .main-header {
+        padding: 60px 20px;
+    }
+    .main-header h1 {
+        font-size: 5.5em;
+    }
+    .main-header p {
+        font-size: 1.5em;
+    }
+
+    .wish-text {
+        font-size: 4em;
+    }
+
+    .image-gallery {
+        /* На десктопах изображения в 3 столбца */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    .image-gallery img {
+        max-width: 100%; /* Позволяем им заполнять сетку */
+    }
+}
+
+/* Стили для очень маленьких экранов (телефонов в портретной ориентации) */
+@media (max-width: 480px) {
+    .main-header h1 {
+        font-size: 2.5em;
+    }
+    .main-header p {
+        font-size: 1em;
+    }
+    .wish-text {
+        font-size: 2em;
+    }
+    .section-description {
+        font-size: 0.95em;
+    }
+    .wish-section {
+        padding: 25px 15px;
+        margin-bottom: 30px;
+    }
+    .image-gallery {
+        gap: 15px;
+    }
+}

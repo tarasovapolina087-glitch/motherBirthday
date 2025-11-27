@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Днем Рождения, мама!</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключение Google Fonts для красивого шрифта (по желанию) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- Confetti library CDN - для анимации конфетти -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <!-- Добавляем класс 'animated-header-element' для анимации заголовка и подзаголовка -->
+        <h1 class="animated-header-element">С Днем Рождения, любимая мама!</h1>
+        <p class="animated-header-element">Спасибо за твои труды. Мы тебя очень любим!</p>
+    </header>
+
+    <main class="content-wrapper">
+        <!-- Первый блок пожеланий и фото -->
+        <!-- Добавляем класс 'animated-on-scroll' для анимации появления секции при прокрутке -->
+        <section class="wish-section animated-on-scroll">
+            <h2 class="wish-text">Пусть все твои желания сбудутся!</h2>
+            <p class="section-description">
+                и даже самые странные
+            </p>
+            <div class="image-gallery">
+                <img src="images/мама отдыхает.jpg" alt=" ">
+                <img src="images/лекарство.jpg" alt=" ">
+                <img src="images/хорошая работа.jpg" alt=" ">
+            </div>
+        </section>
+
+        <!-- Второй блок пожеланий и фото -->
+        <section class="wish-section animated-on-scroll">
+            <h2 class="wish-text">Чтобы вы с папой никогда не тратили время на ссоры</h2>
+            <p class="section-description">
+                только на маленькие
+            </p>
+            <div class="image-gallery">
+                <img src="images/папарации.jpg" alt=" ">
+                <img src="images/акула.jpg" alt=" ">
+                <img src="images/море.jpg" alt=" ">
+            </div>
+        </section>
+
+        <!-- Третий блок пожеланий и фото -->
+        <section class="wish-section animated-on-scroll">
+            <h2 class="wish-text">Желаем с каждым годом, как вино, становиться только лучше</h2>
+            <p class="section-description">
+                и при этом не забывать про хорошее настроение и улыбки!
+            </p>
+            <div class="image-gallery">
+                <img src="images/1.jpg" alt=" ">
+                <img src="images/2.jpg" alt=" ">
+                <img src="images/3.jpg" alt=" ">
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 29 ноября 2025 Для мамы от семьи</p>
+    </footer>
+
+    <!-- Подключение файла script.js в конце body с атрибутом 'defer' -->
+    <script src="script.js" defer></script>
+</body>
+
+</html>
